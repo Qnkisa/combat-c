@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="#F8F9FB"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <!-- TITLE -->
+    <TextView
+        android:id="@+id/profileTitle"
+        android:text="Profile"
+        android:textSize="26sp"
+        android:textStyle="bold"
+        android:textColor="#1E2A38"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_margin="20dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
+    <!-- PROFILE HEADER -->
+    <LinearLayout
+        android:id="@+id/profileHeader"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:background="@drawable/card_bg"
+        android:elevation="6dp"
+        android:padding="20dp"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/profileTitle"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_margin="16dp">
+
+        <ImageView
+            android:src="@android:drawable/sym_def_app_icon"
+            android:layout_width="80dp"
+            android:layout_height="80dp"/>
+
+        <TextView
+            android:text="John Doe"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:layout_marginTop="10dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+        <TextView
+            android:text="Food lover 🍔"
+            android:textSize="13sp"
+            android:textColor="#6B7280"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+    </LinearLayout>
+
+    <!-- INFO CARD -->
+    <LinearLayout
+        android:id="@+id/infoCard"
+        android:orientation="vertical"
+        android:background="@drawable/card_bg"
+        android:elevation="6dp"
+        android:padding="16dp"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/profileHeader"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_margin="16dp">
+
+        <!-- EMAIL -->
+        <TextView
+            android:text="Email"
+            android:textSize="12sp"
+            android:textColor="#6B7280"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+        <TextView
+            android:text="john@email.com"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:layout_marginBottom="12dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+        <!-- PHONE -->
+        <TextView
+            android:text="Phone"
+            android:textSize="12sp"
+            android:textColor="#6B7280"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+        <TextView
+            android:text="+1 234 567 890"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:layout_marginBottom="12dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+        <!-- ADDRESS -->
+        <TextView
+            android:text="Address"
+            android:textSize="12sp"
+            android:textColor="#6B7280"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+        <TextView
+            android:text="123 Main Street, City"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+    </LinearLayout>
+
+    <!-- LOGOUT BUTTON -->
+    <Button
+        android:text="Logout"
+        android:textAllCaps="false"
+        android:textStyle="bold"
+        android:backgroundTint="#EF4444"
+        android:textColor="#FFFFFF"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_margin="16dp"
+        android:layout_width="0dp"
+        android:layout_height="56dp"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
