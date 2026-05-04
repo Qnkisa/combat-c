@@ -2,17 +2,46 @@
 <androidx.constraintlayout.widget.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:background="#F8F4F0"
+    android:background="#F5F5F5"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <!-- SCROLLABLE PROFILE CONTENT -->
+    <!-- Header -->
+    <LinearLayout
+        android:id="@+id/header"
+        android:orientation="vertical"
+        android:background="#FF6B35"
+        android:padding="20dp"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <TextView
+            android:id="@+id/profileTitle"
+            android:text="My Profile"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            android:textColor="#FFFFFF"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+        <TextView
+            android:text="Manage your account"
+            android:textSize="13sp"
+            android:textColor="#FFE0D0"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+    </LinearLayout>
+
+    <!-- Profile Content -->
     <ScrollView
         android:id="@+id/profileScroll"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:fillViewport="true"
-        app:layout_constraintTop_toTopOf="parent"
+        android:padding="12dp"
+        app:layout_constraintTop_toBottomOf="@id/header"
         app:layout_constraintBottom_toTopOf="@id/bottomNav"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent">
@@ -22,258 +51,154 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
-            <!-- PROFILE HERO HEADER -->
-            <FrameLayout
-                android:layout_width="match_parent"
-                android:layout_height="200dp"
-                android:background="@drawable/hero_bg">
-
-                <ImageView
-                    android:src="@drawable/fast_food_icon"
-                    android:layout_width="120dp"
-                    android:layout_height="120dp"
-                    android:layout_gravity="end|bottom"
-                    android:layout_margin="16dp"
-                    android:alpha="0.25"
-                    android:scaleType="fitCenter"/>
-
-                <LinearLayout
-                    android:orientation="vertical"
-                    android:gravity="center"
-                    android:layout_gravity="center"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content">
-
-                    <FrameLayout
-                        android:layout_width="88dp"
-                        android:layout_height="88dp"
-                        android:background="@drawable/avatar_bg">
-                        <TextView
-                            android:text="👤"
-                            android:textSize="44sp"
-                            android:gravity="center"
-                            android:layout_gravity="center"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"/>
-                    </FrameLayout>
-
-                    <TextView
-                        android:id="@+id/profileTitle"
-                        android:text="John Doe"
-                        android:textSize="22sp"
-                        android:textStyle="bold"
-                        android:textColor="#FFFFFF"
-                        android:layout_marginTop="10dp"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"/>
-
-                    <TextView
-                        android:text="Food lover 🍔"
-                        android:textSize="13sp"
-                        android:textColor="#FFE4CC"
-                        android:layout_marginTop="2dp"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"/>
-                </LinearLayout>
-            </FrameLayout>
-
-            <!-- STATS ROW -->
+            <!-- Avatar Card -->
             <LinearLayout
                 android:id="@+id/profileHeader"
-                android:orientation="horizontal"
-                android:background="@drawable/card_bg"
-                android:elevation="8dp"
-                android:layout_marginHorizontal="16dp"
-                android:layout_marginTop="-24dp"
-                android:layout_marginBottom="16dp"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-
-                <LinearLayout android:orientation="vertical" android:gravity="center"
-                    android:padding="16dp" android:layout_weight="1"
-                    android:layout_width="0dp" android:layout_height="wrap_content">
-                    <TextView android:text="12" android:textSize="22sp" android:textStyle="bold"
-                        android:textColor="#FF6B35" android:layout_width="wrap_content" android:layout_height="wrap_content"/>
-                    <TextView android:text="Orders" android:textSize="11sp" android:textColor="#9CA3AF"
-                        android:layout_width="wrap_content" android:layout_height="wrap_content"/>
-                </LinearLayout>
-
-                <View android:layout_width="1dp" android:layout_height="40dp"
-                    android:background="#F3F4F6" android:layout_gravity="center_vertical"/>
-
-                <LinearLayout android:orientation="vertical" android:gravity="center"
-                    android:padding="16dp" android:layout_weight="1"
-                    android:layout_width="0dp" android:layout_height="wrap_content">
-                    <TextView android:text="5" android:textSize="22sp" android:textStyle="bold"
-                        android:textColor="#FF6B35" android:layout_width="wrap_content" android:layout_height="wrap_content"/>
-                    <TextView android:text="Favourites" android:textSize="11sp" android:textColor="#9CA3AF"
-                        android:layout_width="wrap_content" android:layout_height="wrap_content"/>
-                </LinearLayout>
-
-                <View android:layout_width="1dp" android:layout_height="40dp"
-                    android:background="#F3F4F6" android:layout_gravity="center_vertical"/>
-
-                <LinearLayout android:orientation="vertical" android:gravity="center"
-                    android:padding="16dp" android:layout_weight="1"
-                    android:layout_width="0dp" android:layout_height="wrap_content">
-                    <TextView android:text="3" android:textSize="22sp" android:textStyle="bold"
-                        android:textColor="#FF6B35" android:layout_width="wrap_content" android:layout_height="wrap_content"/>
-                    <TextView android:text="Reviews" android:textSize="11sp" android:textColor="#9CA3AF"
-                        android:layout_width="wrap_content" android:layout_height="wrap_content"/>
-                </LinearLayout>
-            </LinearLayout>
-
-            <!-- INFO CARD -->
-            <LinearLayout
-                android:id="@+id/infoCard"
                 android:orientation="vertical"
+                android:gravity="center"
                 android:background="@drawable/card_bg"
-                android:elevation="6dp"
                 android:padding="20dp"
-                android:layout_marginHorizontal="16dp"
                 android:layout_marginBottom="12dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
-                <TextView android:text="Account Details" android:textSize="16sp"
-                    android:textStyle="bold" android:textColor="#1E2A38"
-                    android:layout_marginBottom="16dp"
-                    android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+                <TextView
+                    android:text="👤"
+                    android:textSize="56sp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
 
-                <!-- EMAIL -->
+                <TextView
+                    android:text="John Doe"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    android:textColor="#1E2A38"
+                    android:layout_marginTop="8dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+
+                <TextView
+                    android:text="Food lover 🍔"
+                    android:textSize="13sp"
+                    android:textColor="#9CA3AF"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+            </LinearLayout>
+
+            <!-- Info Card -->
+            <LinearLayout
+                android:id="@+id/infoCard"
+                android:orientation="vertical"
+                android:background="@drawable/card_bg"
+                android:padding="16dp"
+                android:layout_marginBottom="12dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <!-- Email -->
                 <LinearLayout android:orientation="horizontal" android:gravity="center_vertical"
-                    android:layout_marginBottom="16dp" android:layout_width="match_parent" android:layout_height="wrap_content">
-                    <TextView android:text="✉️" android:textSize="20sp" android:layout_marginEnd="14dp"
+                    android:layout_marginBottom="14dp" android:layout_width="match_parent" android:layout_height="wrap_content">
+                    <TextView android:text="✉️" android:textSize="18sp" android:layout_marginEnd="12dp"
                         android:layout_width="wrap_content" android:layout_height="wrap_content"/>
                     <LinearLayout android:orientation="vertical" android:layout_width="wrap_content" android:layout_height="wrap_content">
                         <TextView android:text="Email" android:textSize="11sp" android:textColor="#9CA3AF"
                             android:layout_width="wrap_content" android:layout_height="wrap_content"/>
-                        <TextView android:text="john@email.com" android:textSize="15sp" android:textStyle="bold"
+                        <TextView android:text="john@email.com" android:textSize="14sp" android:textStyle="bold"
                             android:textColor="#1E2A38" android:layout_width="wrap_content" android:layout_height="wrap_content"/>
                     </LinearLayout>
                 </LinearLayout>
 
                 <View android:layout_width="match_parent" android:layout_height="1dp"
-                    android:background="#F3F4F6" android:layout_marginBottom="16dp"/>
+                    android:background="#EEEEEE" android:layout_marginBottom="14dp"/>
 
-                <!-- PHONE -->
+                <!-- Phone -->
                 <LinearLayout android:orientation="horizontal" android:gravity="center_vertical"
-                    android:layout_marginBottom="16dp" android:layout_width="match_parent" android:layout_height="wrap_content">
-                    <TextView android:text="📞" android:textSize="20sp" android:layout_marginEnd="14dp"
+                    android:layout_marginBottom="14dp" android:layout_width="match_parent" android:layout_height="wrap_content">
+                    <TextView android:text="📞" android:textSize="18sp" android:layout_marginEnd="12dp"
                         android:layout_width="wrap_content" android:layout_height="wrap_content"/>
                     <LinearLayout android:orientation="vertical" android:layout_width="wrap_content" android:layout_height="wrap_content">
                         <TextView android:text="Phone" android:textSize="11sp" android:textColor="#9CA3AF"
                             android:layout_width="wrap_content" android:layout_height="wrap_content"/>
-                        <TextView android:text="+1 234 567 890" android:textSize="15sp" android:textStyle="bold"
+                        <TextView android:text="+1 234 567 890" android:textSize="14sp" android:textStyle="bold"
                             android:textColor="#1E2A38" android:layout_width="wrap_content" android:layout_height="wrap_content"/>
                     </LinearLayout>
                 </LinearLayout>
 
                 <View android:layout_width="match_parent" android:layout_height="1dp"
-                    android:background="#F3F4F6" android:layout_marginBottom="16dp"/>
+                    android:background="#EEEEEE" android:layout_marginBottom="14dp"/>
 
-                <!-- ADDRESS -->
+                <!-- Address -->
                 <LinearLayout android:orientation="horizontal" android:gravity="center_vertical"
                     android:layout_width="match_parent" android:layout_height="wrap_content">
-                    <TextView android:text="📍" android:textSize="20sp" android:layout_marginEnd="14dp"
+                    <TextView android:text="📍" android:textSize="18sp" android:layout_marginEnd="12dp"
                         android:layout_width="wrap_content" android:layout_height="wrap_content"/>
                     <LinearLayout android:orientation="vertical" android:layout_width="wrap_content" android:layout_height="wrap_content">
                         <TextView android:text="Address" android:textSize="11sp" android:textColor="#9CA3AF"
                             android:layout_width="wrap_content" android:layout_height="wrap_content"/>
-                        <TextView android:text="123 Main Street, City" android:textSize="15sp" android:textStyle="bold"
+                        <TextView android:text="123 Main Street, City" android:textSize="14sp" android:textStyle="bold"
                             android:textColor="#1E2A38" android:layout_width="wrap_content" android:layout_height="wrap_content"/>
                     </LinearLayout>
                 </LinearLayout>
+
             </LinearLayout>
 
-            <!-- LOGOUT BUTTON -->
+            <!-- Logout -->
             <Button
                 android:text="Logout"
                 android:textAllCaps="false"
+                android:textSize="15sp"
                 android:textStyle="bold"
-                android:textSize="16sp"
                 android:background="@drawable/btn_danger"
                 android:textColor="#FFFFFF"
-                android:layout_marginHorizontal="16dp"
-                android:layout_marginBottom="28dp"
-                android:layout_marginTop="4dp"
                 android:layout_width="match_parent"
-                android:layout_height="56dp"/>
+                android:layout_height="52dp"/>
 
         </LinearLayout>
     </ScrollView>
 
-    <!-- BOTTOM NAVIGATION BAR -->
+    <!-- Bottom Nav -->
     <LinearLayout
         android:id="@+id/bottomNav"
         android:orientation="horizontal"
         android:background="#FFFFFF"
-        android:elevation="12dp"
+        android:elevation="8dp"
         android:layout_width="0dp"
-        android:layout_height="64dp"
+        android:layout_height="60dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent">
 
-        <!-- HOME -->
-        <LinearLayout
-            android:id="@+id/navHome"
-            android:orientation="vertical"
-            android:gravity="center"
-            android:layout_weight="1"
-            android:layout_width="0dp"
-            android:layout_height="match_parent">
-            <TextView android:text="🏠" android:textSize="20sp"
+        <LinearLayout android:id="@+id/navHome" android:orientation="vertical"
+            android:gravity="center" android:layout_weight="1"
+            android:layout_width="0dp" android:layout_height="match_parent">
+            <TextView android:text="🏠" android:textSize="18sp"
                 android:layout_width="wrap_content" android:layout_height="wrap_content"/>
-            <TextView android:text="Home" android:textSize="10sp"
-                android:textColor="#9CA3AF"
+            <TextView android:text="Home" android:textSize="10sp" android:textColor="#AAAAAA"
                 android:layout_width="wrap_content" android:layout_height="wrap_content"/>
         </LinearLayout>
 
-        <!-- MENU -->
-        <LinearLayout
-            android:id="@+id/navRestaurant"
-            android:orientation="vertical"
-            android:gravity="center"
-            android:layout_weight="1"
-            android:layout_width="0dp"
-            android:layout_height="match_parent">
-            <TextView android:text="🍽️" android:textSize="20sp"
+        <LinearLayout android:id="@+id/navRestaurant" android:orientation="vertical"
+            android:gravity="center" android:layout_weight="1"
+            android:layout_width="0dp" android:layout_height="match_parent">
+            <TextView android:text="🍽️" android:textSize="18sp"
                 android:layout_width="wrap_content" android:layout_height="wrap_content"/>
-            <TextView android:text="Menu" android:textSize="10sp"
-                android:textColor="#9CA3AF"
+            <TextView android:text="Menu" android:textSize="10sp" android:textColor="#AAAAAA"
                 android:layout_width="wrap_content" android:layout_height="wrap_content"/>
         </LinearLayout>
 
-        <!-- CART -->
-        <LinearLayout
-            android:id="@+id/navCart"
-            android:orientation="vertical"
-            android:gravity="center"
-            android:layout_weight="1"
-            android:layout_width="0dp"
-            android:layout_height="match_parent">
-            <TextView android:text="🛒" android:textSize="20sp"
+        <LinearLayout android:id="@+id/navCart" android:orientation="vertical"
+            android:gravity="center" android:layout_weight="1"
+            android:layout_width="0dp" android:layout_height="match_parent">
+            <TextView android:text="🛒" android:textSize="18sp"
                 android:layout_width="wrap_content" android:layout_height="wrap_content"/>
-            <TextView android:text="Cart" android:textSize="10sp"
-                android:textColor="#9CA3AF"
+            <TextView android:text="Cart" android:textSize="10sp" android:textColor="#AAAAAA"
                 android:layout_width="wrap_content" android:layout_height="wrap_content"/>
         </LinearLayout>
 
-        <!-- PROFILE (active) -->
-        <LinearLayout
-            android:id="@+id/navProfile"
-            android:orientation="vertical"
-            android:gravity="center"
-            android:layout_weight="1"
-            android:layout_width="0dp"
-            android:layout_height="match_parent">
-            <View
-                android:layout_width="28dp"
-                android:layout_height="3dp"
-                android:background="@drawable/nav_indicator"
-                android:layout_marginBottom="4dp"/>
-            <TextView android:text="👤" android:textSize="20sp"
+        <LinearLayout android:id="@+id/navProfile" android:orientation="vertical"
+            android:gravity="center" android:layout_weight="1"
+            android:layout_width="0dp" android:layout_height="match_parent">
+            <TextView android:text="👤" android:textSize="18sp"
                 android:layout_width="wrap_content" android:layout_height="wrap_content"/>
             <TextView android:text="Profile" android:textSize="10sp"
                 android:textColor="#FF6B35" android:textStyle="bold"
