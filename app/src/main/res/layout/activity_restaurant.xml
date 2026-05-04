@@ -1,121 +1,352 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
-    android:background="#F8F9FB"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="#F8F4F0"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <LinearLayout
-        android:orientation="vertical"
-        android:padding="20dp"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+    <!-- SCROLLABLE RESTAURANT CONTENT -->
+    <ScrollView
+        android:id="@+id/restaurantScroll"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:fillViewport="false"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/bottomNav"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
 
-        <!-- Title -->
-        <TextView
-            android:text="Popular Meals"
-            android:textSize="26sp"
-            android:textStyle="bold"
-            android:textColor="#1E2A38"
-            android:layout_marginBottom="4dp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
-
-        <TextView
-            android:text="Fresh and delicious, delivered fast"
-            android:textSize="14sp"
-            android:textColor="#6B7280"
-            android:layout_marginBottom="20dp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
-
-        <!-- Pizza Card -->
         <LinearLayout
-            android:id="@+id/cardPizza"
             android:orientation="vertical"
-            android:layout_marginBottom="16dp"
-            android:background="@drawable/card_bg"
-            android:elevation="4dp"
-            android:padding="12dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
-            <ImageView
-                android:src="@drawable/ic_launcher_background"
+            <!-- RESTAURANT HERO BANNER -->
+            <FrameLayout
                 android:layout_width="match_parent"
-                android:layout_height="160dp"
-                android:scaleType="centerCrop"/>
+                android:layout_height="180dp"
+                android:background="@drawable/hero_bg">
 
-            <TextView
-                android:text="Pepperoni Pizza"
-                android:textSize="20sp"
-                android:textStyle="bold"
-                android:layout_marginTop="10dp"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"/>
+                <ImageView
+                    android:src="@drawable/burger"
+                    android:layout_width="150dp"
+                    android:layout_height="150dp"
+                    android:layout_gravity="end|center_vertical"
+                    android:layout_marginEnd="16dp"
+                    android:alpha="0.30"
+                    android:scaleType="fitCenter"
+                    android:adjustViewBounds="true"/>
 
-            <TextView
-                android:text="Classic Italian pizza with rich tomato sauce, mozzarella &amp; pepperoni"
-                android:textSize="13sp"
-                android:textColor="#6B7280"
-                android:layout_marginTop="4dp"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"/>
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_gravity="start|center_vertical"
+                    android:layout_marginStart="24dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
 
-            <TextView
-                android:text="$12.99"
-                android:textSize="16sp"
-                android:textStyle="bold"
-                android:textColor="#D4AF37"
-                android:layout_marginTop="8dp"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"/>
+                    <TextView android:text="🏪 FoodDash Kitchen" android:textSize="12sp"
+                        android:textColor="#FFE4CC" android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+
+                    <TextView android:text="Popular Meals" android:textSize="28sp"
+                        android:textStyle="bold" android:textColor="#FFFFFF"
+                        android:layout_marginTop="4dp"
+                        android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+
+                    <TextView android:text="Fresh and delicious, delivered fast" android:textSize="13sp"
+                        android:textColor="#FFE4CC" android:layout_marginTop="2dp"
+                        android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+
+                    <LinearLayout android:orientation="horizontal" android:gravity="center_vertical"
+                        android:layout_marginTop="12dp" android:layout_width="wrap_content" android:layout_height="wrap_content">
+                        <TextView android:text="⚡ 20-35 min" android:textSize="12sp"
+                            android:textColor="#FF6B35" android:textStyle="bold"
+                            android:background="#FFFFFF" android:paddingHorizontal="10dp"
+                            android:paddingVertical="4dp" android:layout_marginEnd="8dp"
+                            android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+                        <TextView android:text="⭐ 4.9" android:textSize="12sp"
+                            android:textColor="#FF8C00" android:textStyle="bold"
+                            android:background="#FFFFFF" android:paddingHorizontal="10dp"
+                            android:paddingVertical="4dp"
+                            android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+                    </LinearLayout>
+                </LinearLayout>
+            </FrameLayout>
+
+            <TextView android:text="Our Menu" android:textSize="20sp" android:textStyle="bold"
+                android:textColor="#1E2A38" android:layout_marginStart="20dp"
+                android:layout_marginTop="20dp" android:layout_marginBottom="4dp"
+                android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+
+            <TextView android:text="Tap a meal to see full details" android:textSize="13sp"
+                android:textColor="#9CA3AF" android:layout_marginStart="20dp"
+                android:layout_marginBottom="14dp"
+                android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+
+            <!-- PIZZA CARD -->
+            <LinearLayout
+                android:id="@+id/cardPizza"
+                android:orientation="vertical"
+                android:layout_marginHorizontal="16dp"
+                android:layout_marginBottom="16dp"
+                android:background="@drawable/card_bg"
+                android:elevation="5dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <ImageView android:src="@drawable/pizza" android:layout_width="match_parent"
+                    android:layout_height="170dp" android:scaleType="centerCrop"/>
+
+                <LinearLayout android:orientation="vertical" android:padding="14dp"
+                    android:layout_width="match_parent" android:layout_height="wrap_content">
+
+                    <LinearLayout android:orientation="horizontal" android:gravity="center_vertical"
+                        android:layout_width="match_parent" android:layout_height="wrap_content">
+                        <TextView android:text="Pepperoni Pizza" android:textSize="19sp"
+                            android:textStyle="bold" android:textColor="#1E2A38"
+                            android:layout_weight="1" android:layout_width="0dp" android:layout_height="wrap_content"/>
+                        <TextView android:text="$12.99" android:textSize="18sp"
+                            android:textStyle="bold" android:textColor="#FF6B35"
+                            android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+                    </LinearLayout>
+
+                    <TextView android:text="Classic Italian pizza with rich tomato sauce, mozzarella &amp; pepperoni"
+                        android:textSize="13sp" android:textColor="#6B7280"
+                        android:layout_marginTop="4dp" android:layout_marginBottom="10dp"
+                        android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+
+                    <LinearLayout android:orientation="horizontal" android:gravity="center_vertical"
+                        android:layout_width="match_parent" android:layout_height="wrap_content">
+                        <TextView android:text="⭐ 4.9  •  🔥 Best Seller" android:textSize="12sp"
+                            android:textColor="#9CA3AF" android:layout_weight="1"
+                            android:layout_width="0dp" android:layout_height="wrap_content"/>
+                        <Button android:text="Order" android:textAllCaps="false"
+                            android:textSize="13sp" android:textStyle="bold"
+                            android:background="@drawable/btn_primary" android:textColor="#FFFFFF"
+                            android:paddingHorizontal="20dp"
+                            android:layout_width="wrap_content" android:layout_height="38dp"/>
+                    </LinearLayout>
+                </LinearLayout>
+            </LinearLayout>
+
+            <!-- BURGER CARD -->
+            <LinearLayout
+                android:id="@+id/cardBurger"
+                android:orientation="vertical"
+                android:layout_marginHorizontal="16dp"
+                android:layout_marginBottom="16dp"
+                android:background="@drawable/card_bg"
+                android:elevation="5dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <ImageView android:src="@drawable/burger" android:layout_width="match_parent"
+                    android:layout_height="170dp" android:scaleType="centerCrop"/>
+
+                <LinearLayout android:orientation="vertical" android:padding="14dp"
+                    android:layout_width="match_parent" android:layout_height="wrap_content">
+
+                    <LinearLayout android:orientation="horizontal" android:gravity="center_vertical"
+                        android:layout_width="match_parent" android:layout_height="wrap_content">
+                        <TextView android:text="Beef Burger" android:textSize="19sp"
+                            android:textStyle="bold" android:textColor="#1E2A38"
+                            android:layout_weight="1" android:layout_width="0dp" android:layout_height="wrap_content"/>
+                        <TextView android:text="$9.99" android:textSize="18sp"
+                            android:textStyle="bold" android:textColor="#FF6B35"
+                            android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+                    </LinearLayout>
+
+                    <TextView android:text="Grilled beef patty with lettuce, tomato and signature sauce"
+                        android:textSize="13sp" android:textColor="#6B7280"
+                        android:layout_marginTop="4dp" android:layout_marginBottom="10dp"
+                        android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+
+                    <LinearLayout android:orientation="horizontal" android:gravity="center_vertical"
+                        android:layout_width="match_parent" android:layout_height="wrap_content">
+                        <TextView android:text="⭐ 4.8  •  🌿 Fresh" android:textSize="12sp"
+                            android:textColor="#9CA3AF" android:layout_weight="1"
+                            android:layout_width="0dp" android:layout_height="wrap_content"/>
+                        <Button android:text="Order" android:textAllCaps="false"
+                            android:textSize="13sp" android:textStyle="bold"
+                            android:background="@drawable/btn_primary" android:textColor="#FFFFFF"
+                            android:paddingHorizontal="20dp"
+                            android:layout_width="wrap_content" android:layout_height="38dp"/>
+                    </LinearLayout>
+                </LinearLayout>
+            </LinearLayout>
+
+            <!-- DRINKS CARD -->
+            <LinearLayout
+                android:id="@+id/cardDrinks"
+                android:orientation="vertical"
+                android:layout_marginHorizontal="16dp"
+                android:layout_marginBottom="16dp"
+                android:background="@drawable/card_bg"
+                android:elevation="5dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <ImageView android:src="@drawable/drink" android:layout_width="match_parent"
+                    android:layout_height="170dp" android:scaleType="centerCrop"/>
+
+                <LinearLayout android:orientation="vertical" android:padding="14dp"
+                    android:layout_width="match_parent" android:layout_height="wrap_content">
+
+                    <LinearLayout android:orientation="horizontal" android:gravity="center_vertical"
+                        android:layout_width="match_parent" android:layout_height="wrap_content">
+                        <TextView android:text="Refreshing Drinks" android:textSize="19sp"
+                            android:textStyle="bold" android:textColor="#1E2A38"
+                            android:layout_weight="1" android:layout_width="0dp" android:layout_height="wrap_content"/>
+                        <TextView android:text="$3.49" android:textSize="18sp"
+                            android:textStyle="bold" android:textColor="#FF6B35"
+                            android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+                    </LinearLayout>
+
+                    <TextView android:text="Cold soft drinks, fresh juices and milkshakes to complement your meal"
+                        android:textSize="13sp" android:textColor="#6B7280"
+                        android:layout_marginTop="4dp" android:layout_marginBottom="10dp"
+                        android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+
+                    <LinearLayout android:orientation="horizontal" android:gravity="center_vertical"
+                        android:layout_width="match_parent" android:layout_height="wrap_content">
+                        <TextView android:text="⭐ 4.7  •  🧊 Ice Cold" android:textSize="12sp"
+                            android:textColor="#9CA3AF" android:layout_weight="1"
+                            android:layout_width="0dp" android:layout_height="wrap_content"/>
+                        <Button android:text="Order" android:textAllCaps="false"
+                            android:textSize="13sp" android:textStyle="bold"
+                            android:background="@drawable/btn_primary" android:textColor="#FFFFFF"
+                            android:paddingHorizontal="20dp"
+                            android:layout_width="wrap_content" android:layout_height="38dp"/>
+                    </LinearLayout>
+                </LinearLayout>
+            </LinearLayout>
+
+            <!-- DESSERTS CARD -->
+            <LinearLayout
+                android:id="@+id/cardDesserts"
+                android:orientation="vertical"
+                android:layout_marginHorizontal="16dp"
+                android:layout_marginBottom="28dp"
+                android:background="@drawable/card_bg"
+                android:elevation="5dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <ImageView android:src="@drawable/dessert" android:layout_width="match_parent"
+                    android:layout_height="170dp" android:scaleType="centerCrop"/>
+
+                <LinearLayout android:orientation="vertical" android:padding="14dp"
+                    android:layout_width="match_parent" android:layout_height="wrap_content">
+
+                    <LinearLayout android:orientation="horizontal" android:gravity="center_vertical"
+                        android:layout_width="match_parent" android:layout_height="wrap_content">
+                        <TextView android:text="Sweet Desserts" android:textSize="19sp"
+                            android:textStyle="bold" android:textColor="#1E2A38"
+                            android:layout_weight="1" android:layout_width="0dp" android:layout_height="wrap_content"/>
+                        <TextView android:text="$5.99" android:textSize="18sp"
+                            android:textStyle="bold" android:textColor="#FF6B35"
+                            android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+                    </LinearLayout>
+
+                    <TextView android:text="Handcrafted cakes, ice cream and seasonal sweet treats"
+                        android:textSize="13sp" android:textColor="#6B7280"
+                        android:layout_marginTop="4dp" android:layout_marginBottom="10dp"
+                        android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+
+                    <LinearLayout android:orientation="horizontal" android:gravity="center_vertical"
+                        android:layout_width="match_parent" android:layout_height="wrap_content">
+                        <TextView android:text="⭐ 4.9  •  🍰 Chef's Pick" android:textSize="12sp"
+                            android:textColor="#9CA3AF" android:layout_weight="1"
+                            android:layout_width="0dp" android:layout_height="wrap_content"/>
+                        <Button android:text="Order" android:textAllCaps="false"
+                            android:textSize="13sp" android:textStyle="bold"
+                            android:background="@drawable/btn_primary" android:textColor="#FFFFFF"
+                            android:paddingHorizontal="20dp"
+                            android:layout_width="wrap_content" android:layout_height="38dp"/>
+                    </LinearLayout>
+                </LinearLayout>
+            </LinearLayout>
 
         </LinearLayout>
+    </ScrollView>
 
-        <!-- Burger Card -->
+    <!-- BOTTOM NAVIGATION BAR -->
+    <LinearLayout
+        android:id="@+id/bottomNav"
+        android:orientation="horizontal"
+        android:background="#FFFFFF"
+        android:elevation="12dp"
+        android:layout_width="0dp"
+        android:layout_height="64dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <!-- HOME -->
         <LinearLayout
-            android:id="@+id/cardBurger"
+            android:id="@+id/navHome"
             android:orientation="vertical"
-            android:layout_marginBottom="16dp"
-            android:background="@drawable/card_bg"
-            android:elevation="4dp"
-            android:padding="12dp"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:gravity="center"
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="match_parent">
+            <TextView android:text="🏠" android:textSize="20sp"
+                android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+            <TextView android:text="Home" android:textSize="10sp"
+                android:textColor="#9CA3AF"
+                android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+        </LinearLayout>
 
-            <ImageView
-                android:src="@drawable/ic_launcher_background"
-                android:layout_width="match_parent"
-                android:layout_height="160dp"
-                android:scaleType="centerCrop"/>
+        <!-- MENU (active) -->
+        <LinearLayout
+            android:id="@+id/navRestaurant"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="match_parent">
+            <View
+                android:layout_width="28dp"
+                android:layout_height="3dp"
+                android:background="@drawable/nav_indicator"
+                android:layout_marginBottom="4dp"/>
+            <TextView android:text="🍽️" android:textSize="20sp"
+                android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+            <TextView android:text="Menu" android:textSize="10sp"
+                android:textColor="#FF6B35" android:textStyle="bold"
+                android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+        </LinearLayout>
 
-            <TextView
-                android:text="Beef Burger"
-                android:textSize="20sp"
-                android:textStyle="bold"
-                android:layout_marginTop="10dp"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"/>
+        <!-- CART -->
+        <LinearLayout
+            android:id="@+id/navCart"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="match_parent">
+            <TextView android:text="🛒" android:textSize="20sp"
+                android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+            <TextView android:text="Cart" android:textSize="10sp"
+                android:textColor="#9CA3AF"
+                android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+        </LinearLayout>
 
-            <TextView
-                android:text="Grilled beef patty with lettuce, tomato and signature sauce"
-                android:textSize="13sp"
-                android:textColor="#6B7280"
-                android:layout_marginTop="4dp"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"/>
-
-            <TextView
-                android:text="$9.99"
-                android:textSize="16sp"
-                android:textStyle="bold"
-                android:textColor="#D4AF37"
-                android:layout_marginTop="8dp"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"/>
-
+        <!-- PROFILE -->
+        <LinearLayout
+            android:id="@+id/navProfile"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="match_parent">
+            <TextView android:text="👤" android:textSize="20sp"
+                android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+            <TextView android:text="Profile" android:textSize="10sp"
+                android:textColor="#9CA3AF"
+                android:layout_width="wrap_content" android:layout_height="wrap_content"/>
         </LinearLayout>
 
     </LinearLayout>
 
-</ScrollView>
+</androidx.constraintlayout.widget.ConstraintLayout>

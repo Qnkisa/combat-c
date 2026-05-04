@@ -12,16 +12,31 @@ class HomeActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_home)
 
+        // Category cards → Restaurant
         val burger = findViewById<LinearLayout>(R.id.cardBurger)
         val pizza = findViewById<LinearLayout>(R.id.cardPizza)
         val drinks = findViewById<LinearLayout>(R.id.cardDrinks)
         val desserts = findViewById<LinearLayout>(R.id.cardDesserts)
 
-        val intent = Intent(this, RestaurantActivity::class.java)
+        burger.setOnClickListener { startActivity(Intent(this, RestaurantActivity::class.java)) }
+        pizza.setOnClickListener { startActivity(Intent(this, RestaurantActivity::class.java)) }
+        drinks.setOnClickListener { startActivity(Intent(this, RestaurantActivity::class.java)) }
+        desserts.setOnClickListener { startActivity(Intent(this, RestaurantActivity::class.java)) }
 
-        burger.setOnClickListener { startActivity(intent) }
-        pizza.setOnClickListener { startActivity(intent) }
-        drinks.setOnClickListener { startActivity(intent) }
-        desserts.setOnClickListener { startActivity(intent) }
+        // Bottom nav
+        setupBottomNav()
+    }
+
+    private fun setupBottomNav() {
+        // Home is already active — no action needed for navHome
+        findViewById<LinearLayout>(R.id.navRestaurant).setOnClickListener {
+            startActivity(Intent(this, RestaurantActivity::class.java))
+        }
+        findViewById<LinearLayout>(R.id.navCart).setOnClickListener {
+            startActivity(Intent(this, CartActivity::class.java))
+        }
+        findViewById<LinearLayout>(R.id.navProfile).setOnClickListener {
+            startActivity(Intent(this, ProfileActivity::class.java))
+        }
     }
 }
