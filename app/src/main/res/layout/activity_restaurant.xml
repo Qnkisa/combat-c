@@ -91,7 +91,7 @@
                         android:layout_height="wrap_content"/>
 
                     <TextView
-                        android:text="$12.99"
+                        android:text="€12.99"
                         android:textSize="15sp"
                         android:textStyle="bold"
                         android:textColor="#FF6B35"
@@ -142,7 +142,7 @@
                         android:layout_height="wrap_content"/>
 
                     <TextView
-                        android:text="$9.99"
+                        android:text="€9.99"
                         android:textSize="15sp"
                         android:textStyle="bold"
                         android:textColor="#FF6B35"
@@ -193,7 +193,7 @@
                         android:layout_height="wrap_content"/>
 
                     <TextView
-                        android:text="$3.49"
+                        android:text="€3.49"
                         android:textSize="15sp"
                         android:textStyle="bold"
                         android:textColor="#FF6B35"
@@ -244,7 +244,7 @@
                         android:layout_height="wrap_content"/>
 
                     <TextView
-                        android:text="$5.99"
+                        android:text="€5.99"
                         android:textSize="15sp"
                         android:textStyle="bold"
                         android:textColor="#FF6B35"

@@ -87,7 +87,7 @@
                         android:layout_height="wrap_content"/>
 
                     <TextView
-                        android:text="Only $10.99 today"
+                        android:text="Only €10.99 today"
                         android:textSize="13sp"
                         android:textColor="#FFE0D0"
                         android:layout_marginTop="2dp"

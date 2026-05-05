@@ -3,6 +3,7 @@ package com.example.fooddash.activities
 import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
+import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
@@ -14,13 +15,25 @@ class FoodDetailsActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_food_details)
 
-        // Back button
-        val btnBack = findViewById<TextView>(R.id.btnBack)
-        btnBack.setOnClickListener { finish() }
+        // Read product data from Intent extras
+        val name        = intent.getStringExtra("FOOD_NAME")        ?: "Unknown Item"
+        val price       = intent.getStringExtra("FOOD_PRICE")       ?: ""
+        val description = intent.getStringExtra("FOOD_DESCRIPTION") ?: ""
+        val rating      = intent.getStringExtra("FOOD_RATING")      ?: "⭐ 4.5 · 20-30 min delivery"
+        val imageRes    = intent.getIntExtra("FOOD_IMAGE_RES", R.drawable.burger)
+
+        // Populate views
+        findViewById<ImageView>(R.id.foodImage).setImageResource(imageRes)
+        findViewById<TextView>(R.id.foodName).text = name
+        findViewById<TextView>(R.id.foodPrice).text = price
+        findViewById<TextView>(R.id.foodDesc).text = description
+        findViewById<TextView>(R.id.foodRating).text = rating
+
+        // Back button — go back to the previous screen
+        findViewById<TextView>(R.id.btnBack).setOnClickListener { finish() }
 
         // Add to cart button → Cart
-        val addToCartBtn = findViewById<Button>(R.id.btnAddToCart)
-        addToCartBtn.setOnClickListener {
+        findViewById<Button>(R.id.btnAddToCart).setOnClickListener {
             startActivity(Intent(this, CartActivity::class.java))
         }
 
